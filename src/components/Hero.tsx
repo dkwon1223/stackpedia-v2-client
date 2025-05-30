@@ -4,7 +4,7 @@ const Hero = () => {
     <div className="hero bg-gradient-to-br from-base-200 to-base-300 min-h-screen">
       <div className="hero-content text-center max-w-4xl">
         <div className="space-y-8">
-          <div className="badge badge-soft badge-lg font-semibold">
+          <div className="badge badge-accent badge-lg font-semibold">
             For Developers, By Developers
           </div>
           <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">

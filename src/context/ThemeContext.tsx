@@ -1,20 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { ReactNode } from "react";
 
 const ThemeContext = createContext({
-    theme: 'silk',
+    theme: 'bumblebee',
     toggleTheme: () => {},
 });
-
-import { ReactNode } from "react";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
     const [theme, setTheme] = useState(() => {
         const saved = localStorage.getItem('theme');
-        if(saved) return saved;
-
-        return window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'luxury'
-            : 'silk';
+        return saved ? saved : 'bumblebee';
     });
 
     useEffect(() => {
@@ -23,7 +18,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }, [theme]);
 
     const toggleTheme = () => {
-        theme === 'silk' ? setTheme('luxury') : setTheme('silk');
+        theme === 'bumblebee' ? setTheme('luxury') : setTheme('bumblebee');
     };
 
     return (

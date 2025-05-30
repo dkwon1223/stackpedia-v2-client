@@ -1,11 +1,8 @@
 import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
 import { Link } from "react-router";
-import ToggleIcon from "./ToggleIcon";
-import { useTheme } from "../context/ThemeContext";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
-
-  const { toggleTheme } = useTheme();
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -61,7 +58,7 @@ const Navbar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <details>
+            <details className="z-10">
               <summary>Parent</summary>
               <ul className="p-2">
                 <li>
@@ -79,7 +76,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <ToggleIcon tip={"toggle theme"} icon1={<SunIcon color="#F59E0B" />} icon2={<MoonIcon color="#6366F1"/>} toggleHandler={toggleTheme}/>
+        <ThemeToggle tip={"toggle theme"} icon1={<SunIcon color="#F59E0B" />} icon2={<MoonIcon color="#6366F1"/>} />
         <div className="dropdown dropdown-end ml-4">
           <div
             tabIndex={0}
