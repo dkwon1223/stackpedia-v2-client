@@ -18,7 +18,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }, [theme]);
 
     const toggleTheme = () => {
-        theme === 'bumblebee' ? setTheme('luxury') : setTheme('bumblebee');
+        theme === 'bumblebee' ? setTheme('sunset') : setTheme('bumblebee');
     };
 
     return (

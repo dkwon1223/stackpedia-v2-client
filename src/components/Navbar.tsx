@@ -1,4 +1,4 @@
-import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
+import { MoonIcon, Square3Stack3DIcon, SunIcon } from "@heroicons/react/16/solid";
 import { Link } from "react-router";
 import ThemeToggle from "./ThemeToggle";
 
@@ -33,45 +33,46 @@ const Navbar = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li>
-              <a>Parent</a>
+              <a>Explore</a>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link to={"/technologies"}>Technologies</Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a>Stacks</a>
+                </li>
+                <li>
+                  <a>Projects</a>
                 </li>
               </ul>
-            </li>
-            <li>
-              <Link to={"/technologies"}>Technologies</Link>
             </li>
           </ul>
         </div>
         <Link to={"/"} className="btn btn-ghost text-xl">
+          <Square3Stack3DIcon className="h-6 w-6 mr-2" />
           StackPedia
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 w-md justify-around">
+        <ul className="menu menu-horizontal px-1 w-md justify-evenly">
           <li>
             <Link to={"/"}>Home</Link>
           </li>
           <li>
             <details className="z-10">
-              <summary>Parent</summary>
+              <summary>Explore</summary>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link to={"/technologies"}>Technologies</Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a>Stacks</a>
+                </li>
+                <li>
+                  <a>Projects</a>
                 </li>
               </ul>
             </details>
-          </li>
-          <li>
-            <Link to={"/technologies"}>Technologies</Link>
           </li>
         </ul>
       </div>
@@ -85,7 +86,7 @@ const Navbar = () => {
           >
             <div className="w-10 rounded-full">
               <img
-                alt="Tailwind CSS Navbar component"
+                alt="Profile picture icon"
                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
               />
             </div>

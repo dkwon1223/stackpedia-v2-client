@@ -11,7 +11,7 @@ interface ThemeToggleProps {
 const ThemeToggle: FC<ThemeToggleProps> = (props) => {
   const { theme, toggleTheme } = useTheme();
   
-  const isChecked = theme === 'luxury';
+  const isChecked = theme === 'sunset';
   
   return (
     <div className="tooltip tooltip-bottom" data-tip={props.tip}>

@@ -1,3 +1,4 @@
+import { Square3Stack3DIcon, UsersIcon, WrenchScrewdriverIcon } from "@heroicons/react/16/solid";
 
 const Hero = () => {
   return (
@@ -31,19 +32,19 @@ const Hero = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 max-w-2xl mx-auto">
             <div className="stat bg-base-100/50 rounded-2xl backdrop-blur-sm border border-base-300/30">
-              <div className="stat-figure text-primary text-2xl">⚡</div>
-              <div className="stat-title text-sm">Tech Stacks</div>
-              <div className="stat-value text-2xl text-primary">100+</div>
+              <div className="stat-figure text-primary text-2xl"><Square3Stack3DIcon color="" height={'1.5em'}/></div>
+              <div className="stat-title text-lg">Tech Stacks</div>
+              <div className="stat-value text-2xl text-secondary">100+</div>
             </div>
             <div className="stat bg-base-100/50 rounded-2xl backdrop-blur-sm border border-base-300/30">
-              <div className="stat-figure text-primary text-2xl">🛠️</div>
-              <div className="stat-title text-sm">Technologies</div>
-              <div className="stat-value text-2xl text-primary">500+</div>
+              <div className="stat-figure text-primary text-2xl"><WrenchScrewdriverIcon color="" height={'1.5em'}/></div>
+              <div className="stat-title text-lg">Technologies</div>
+              <div className="stat-value text-2xl text-secondary">500+</div>
             </div>
             <div className="stat bg-base-100/50 rounded-2xl backdrop-blur-sm border border-base-300/30">
-              <div className="stat-figure text-primary text-2xl">👥</div>
-              <div className="stat-title text-sm">Developers</div>
-              <div className="stat-value text-2xl text-primary">10K+</div>
+              <div className="stat-figure text-primary text-2xl"><UsersIcon color="" height={'1.5em'}/></div>
+              <div className="stat-title text-lg">Developers</div>
+              <div className="stat-value text-2xl text-secondary">10K+</div>
             </div>
           </div>
         </div>
