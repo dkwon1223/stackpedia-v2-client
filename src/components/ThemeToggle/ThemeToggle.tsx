@@ -1,17 +1,11 @@
-
-import { FC, ReactNode } from "react";
-import { useTheme } from "../context/ThemeContext";
-
-interface ThemeToggleProps {
-    tip?: string;
-    icon1: ReactNode;
-    icon2: ReactNode;
-}
+import { FC } from "react";
+import { useTheme } from "../../context/ThemeContext";
+import { ThemeToggleProps } from "./props";
 
 const ThemeToggle: FC<ThemeToggleProps> = (props) => {
   const { theme, toggleTheme } = useTheme();
   
-  const isChecked = theme === 'sunset';
+  const isChecked = theme === 'darkbub';
   
   return (
     <div className="tooltip tooltip-bottom" data-tip={props.tip}>

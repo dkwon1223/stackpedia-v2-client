@@ -1,7 +1,8 @@
 import { Square3Stack3DIcon } from "@heroicons/react/16/solid";
+import { FC } from "react";
 import { Link } from "react-router";
 
-const Footer = () => {
+const Footer: FC = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content items-center justify-between p-4">
       <aside className="grid-flow-col items-center">

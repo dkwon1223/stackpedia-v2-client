@@ -2,14 +2,14 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { ReactNode } from "react";
 
 const ThemeContext = createContext({
-    theme: 'bumblebee',
+    theme: 'lightbub',
     toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
     const [theme, setTheme] = useState(() => {
         const saved = localStorage.getItem('theme');
-        return saved ? saved : 'bumblebee';
+        return saved ? saved : 'lightbub';
     });
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }, [theme]);
 
     const toggleTheme = () => {
-        theme === 'bumblebee' ? setTheme('sunset') : setTheme('bumblebee');
+        theme === 'lightbub' ? setTheme('darkbub') : setTheme('lightbub');
     };
 
     return (
