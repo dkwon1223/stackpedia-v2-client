@@ -4,7 +4,7 @@ import TechnologyDefaultImage from "../../assets/technology_default.png";
 
 const Card: FC<CardProps> = ({ title, description, buttonText, imageUrl }) => {
   return (
-    <div className="card bg-base-200 w-[16em] shadow-md hover:shadow-xl transition-shadow duration-300">
+    <div className="card bg-base-300 w-[16em] shadow-md hover:shadow-xl transition-shadow duration-300">
       <figure>
         <img
           src={imageUrl || TechnologyDefaultImage}
