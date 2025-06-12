@@ -1,14 +1,32 @@
-import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
+import { MoonIcon, Square3Stack3DIcon, SunIcon } from "@heroicons/react/16/solid";
 import { Link } from "react-router";
-import ToggleIcon from "./ToggleIcon";
-import { useTheme } from "../context/ThemeContext";
+import { useRef, useEffect, FC } from "react";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
-const Navbar = () => {
+const Navbar: FC = () => {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
 
-  const { toggleTheme } = useTheme();
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (detailsRef.current && !detailsRef.current.contains(event.target as Node)) {
+        detailsRef.current.open = false;
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleLinkClick = (): void => {
+    if (detailsRef.current) {
+      detailsRef.current.open = false;
+    }
+  };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm border-b-1 border-soft">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -19,67 +37,69 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow-2xl"
           >
             <li>
               <Link to={"/"}>Home</Link>
             </li>
             <li>
-              <a>Parent</a>
+              <a>Explore</a>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link to={"/technologies"}>Technologies</Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a>Stacks</a>
+                </li>
+                <li>
+                  <a>Projects</a>
                 </li>
               </ul>
-            </li>
-            <li>
-              <Link to={"/technologies"}>Technologies</Link>
             </li>
           </ul>
         </div>
         <Link to={"/"} className="btn btn-ghost text-xl">
+          <Square3Stack3DIcon className="h-6 w-6 mr-2" />
           StackPedia
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 w-md justify-around">
+        <ul className="menu menu-lg menu-horizontal px-1 w-md justify-evenly">
           <li>
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <details>
-              <summary>Parent</summary>
+            <details className="z-10" ref={detailsRef}>
+              <summary>Explore</summary>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link to={"/technologies"} onClick={handleLinkClick}>
+                    Technologies
+                  </Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a onClick={handleLinkClick}>Stacks</a>
+                </li>
+                <li>
+                  <a onClick={handleLinkClick}>Projects</a>
                 </li>
               </ul>
             </details>
           </li>
-          <li>
-            <Link to={"/technologies"}>Technologies</Link>
-          </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <ToggleIcon tip={"toggle theme"} icon1={<SunIcon color="#F59E0B" />} icon2={<MoonIcon color="#6366F1"/>} toggleHandler={toggleTheme}/>
+        <ThemeToggle tip={"toggle theme"} icon1={<SunIcon color="#F59E0B" />} icon2={<MoonIcon color="#6366F1"/>} />
         <div className="dropdown dropdown-end ml-4">
           <div
             tabIndex={0}
@@ -88,7 +108,7 @@ const Navbar = () => {
           >
             <div className="w-10 rounded-full">
               <img
-                alt="Tailwind CSS Navbar component"
+                alt="Profile picture icon"
                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
               />
             </div>
