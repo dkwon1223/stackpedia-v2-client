@@ -1,15 +1,18 @@
 import { FC } from "react";
 import { CardProps } from "./props";
-import TechnologyDefaultImage from "../../assets/technology_default.png";
+import TechnologyDefaultImage from "../../assets/logos/technology-default.png";
+import { useTheme } from "../../context/ThemeContext";
 
-const Card: FC<CardProps> = ({ title, description, buttonText, imageUrl }) => {
+const Card: FC<CardProps> = ({ title, description, buttonText, logo }) => {
+  const { theme } = useTheme();
+
   return (
     <div className="card bg-base-300 w-[16em] shadow-md hover:shadow-xl transition-shadow duration-300">
-      <figure>
+      <figure className="p-2">
         <img
-          src={imageUrl || TechnologyDefaultImage}
-          className="w-full h-[12em] object-contain"
-          alt="technology logo"
+          src={(theme == 'darkbub' && logo.dark ? logo.dark : logo.image) || TechnologyDefaultImage}
+          className="w-[12em] h-[12em] object-contain"
+          alt={logo.alt}
         />
       </figure>
       <div className="card-body">

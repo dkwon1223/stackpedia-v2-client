@@ -2,10 +2,10 @@ import { FC } from "react";
 import Card from "../components/Card/Card";
 import { useTechnologies } from "../api/queries/technologies";
 import { ExclamationCircleIcon } from "@heroicons/react/16/solid";
+import { LOGO_REGISTRY } from "../data/logoRegistry";
 
 const Technologies: FC = () => {
   const { data: technologies, isPending, isError, error } = useTechnologies();
-
   return (
     <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex justify-center items-center">
       {isPending && <span className="loading loading-bars w-[10%] text-primary"></span>}
@@ -22,7 +22,7 @@ const Technologies: FC = () => {
               <Card
                 title={technology.name}
                 description={technology.shortDescription}
-                imageUrl={technology.logoUrl}
+                logo={LOGO_REGISTRY[technology.slug]}
                 buttonText={"Details"}
               />
             );

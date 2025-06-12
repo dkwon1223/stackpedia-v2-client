@@ -7,7 +7,16 @@ export type Technology = {
     websiteUrl: string;
     githubUrl: string;
     documentationUrl: string;
-    logoUrl: string;
     categories?: { id: string; name: string }[];
     updatedAt: string;
+}
+
+export type LogoConfig = {
+    image: string | null;
+    dark?: string | null;
+    alt: string;
+}
+
+export interface LogoRegistry {
+    [slug: string]: LogoConfig;
 }
