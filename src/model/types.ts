@@ -1,4 +1,4 @@
-export type Technology = {
+export interface Technology {
     id: string;
     name: string;
     shortDescription: string;
@@ -11,7 +11,14 @@ export type Technology = {
     updatedAt: string;
 }
 
-export type LogoConfig = {
+export interface Category {
+    id: string;
+    name: string;
+    description: string;
+    slug: string;
+}
+
+export interface LogoConfig {
     image: string | null;
     dark?: string | null;
     alt: string;

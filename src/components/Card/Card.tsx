@@ -7,11 +7,11 @@ const Card: FC<CardProps> = ({ title, description, buttonText, logo }) => {
   const { theme } = useTheme();
 
   return (
-    <div className="card bg-base-300 w-[16em] shadow-md hover:shadow-xl transition-shadow duration-300">
+    <div className="card bg-base-300 w-[14em] shadow-md hover:shadow-xl transition-shadow duration-300">
       <figure className="p-2">
         <img
           src={(theme == 'darkbub' && logo.dark ? logo.dark : logo.image) || TechnologyDefaultImage}
-          className="w-[12em] h-[12em] object-contain"
+          className="w-[10em] h-[10em] object-contain"
           alt={logo.alt}
         />
       </figure>
