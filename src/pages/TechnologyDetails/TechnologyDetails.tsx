@@ -1,11 +1,17 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useTechnology } from "../../api/queries/technologies";
 import { AxiosError } from "axios";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import { useTheme } from "../../context/ThemeContext";
+import { LOGO_REGISTRY } from "../../data/logoRegistry";
+import { LogoConfig } from "../../model/types";
+import TechnologyDefaultImage from "../../assets/logos/technology-default.png";
 
 const TechnologyDetails: FC = () => {
   const { technologySlug } = useParams();
+  const [logo, setLogo] = useState<LogoConfig>();
+  const { theme } = useTheme();
   const {
     data: technology,
     isPending,
@@ -33,21 +39,45 @@ const TechnologyDetails: FC = () => {
     return `Failed to load technology: ${technologySlug}`;
   };
 
-  return (
-    <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center">
-      {isPending && (
+  useEffect(() => {
+    if (technologySlug) {
+      setLogo(LOGO_REGISTRY[technologySlug]);
+    }
+  }, [technologySlug]);
+
+  if (isPending) {
+    return (
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center">
         <span className="loading loading-bars w-[10%] text-primary"></span>
-      )}
-      {isError && (
+      </main>
+    );
+  }
+
+  if (isError) {
+    return (
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center">
         <ErrorPage
           errorStatusCode={getErrorStatusCode()}
           reason={getErrorMessage()}
           refetch={refetch}
           isFetching={isFetching}
         />
-      )}
+      </main>
+    );
+  }
+
+  return (
+    <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center">
       <section className="max-w-4xl mx-auto p-6">
         <div className="mb-8">
+          <img
+            src={
+              (theme == "darkbub" && logo?.dark ? logo.dark : logo?.image) ||
+              TechnologyDefaultImage
+            }
+            className="w-[10em] h-[10em] object-contain"
+            alt={logo?.alt}
+          />
           <h1 className="text-4xl font-bold mb-2">{technology?.name}</h1>
           <p className="text-xl text-base-content/70 mb-4">
             {technology?.shortDescription}
