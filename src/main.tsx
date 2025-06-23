@@ -11,6 +11,7 @@ import Settings from "./pages/Settings/Settings.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import axios, { AxiosError } from "axios";
+import TechnologyDetails from "./pages/TechnologyDetails/TechnologyDetails.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,12 @@ const router = createBrowserRouter([
     children: [
       { path: "*", Component: Home },
       { index: true, Component: Home },
-      { path: "technologies", Component: Technologies },
+      { path: "technologies", 
+        children: [
+          { index: true, Component: Technologies },
+          { path: ":technologySlug", Component: TechnologyDetails }
+        ], 
+      },
       { path: "profile", Component: Profile },
       { path: "settings", Component: Settings },
     ],

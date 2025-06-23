@@ -5,4 +5,5 @@ export interface CardProps {
     description: string;
     buttonText: string;
     logo: LogoConfig;
+    onButtonClick: () => void;
 }
