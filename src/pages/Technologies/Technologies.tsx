@@ -7,6 +7,7 @@ import { AxiosError } from "axios";
 import { useCategories } from "../../api/queries/categories";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useNavigate } from "react-router";
+import { useTheme } from "../../context/ThemeContext";
 
 const Technologies: FC = () => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ const Technologies: FC = () => {
     refetch,
   } = useTechnologies(categoryId);
   const { data: categories } = useCategories();
+  const { theme } = useTheme();
 
   const getErrorStatusCode = () => {
     if (error && error instanceof AxiosError) {
@@ -48,8 +50,37 @@ const Technologies: FC = () => {
     return tech.name.toLowerCase().includes(search.toLocaleLowerCase());
   });
 
+  if (isError) {
+    return (
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center bg-base-200">
+        <ErrorPage
+          errorStatusCode={getErrorStatusCode()}
+          reason={getErrorMessage()}
+          refetch={refetch}
+          isFetching={isFetching}
+        />
+      </main>
+    )
+  }
+
+  if (isPending) {
+    return (
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center bg-base-200">
+        <section className="max-w-7xl min-h-[90%] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center">
+          {Array.from({ length: 20 }, (_, index) => (
+            <div 
+              key={index} 
+              className="skeleton w-[12em] md:w-[13em] lg:w-[14em] xl:w-[15em] h-[15em]"
+            >
+            </div>
+          ))}
+        </section>
+      </main>
+    )
+  }
+
   return (
-    <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center">
+    <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center bg-base-200">
       <search className="w-full flex justify-center items-center gap-2 h-[4em]">
         <div className="flex justify-center">
           <label className="input">
@@ -62,7 +93,7 @@ const Technologies: FC = () => {
             />
           </label>
         </div>
-        <div className="divider divider-horizontal divider-primary text-primary text-xs">Filter</div>
+        <div className="divider divider-horizontal divider-primary text-primary text-xs">Filters</div>
         <form>
           <div className="flex items-center justify-center">
             <select
@@ -81,17 +112,6 @@ const Technologies: FC = () => {
         </form>
       </search>
       <div className="w-full divider divider-primary mb-4"></div>
-      {isPending && (
-        <span className="loading loading-bars w-[10%] text-primary"></span>
-      )}
-      {isError && (
-        <ErrorPage
-          errorStatusCode={getErrorStatusCode()}
-          reason={getErrorMessage()}
-          refetch={refetch}
-          isFetching={isFetching}
-        />
-      )}
       <section className="max-w-7xl min-h-[90%] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center">
         {filteredTechnologies
           ? filteredTechnologies.map((technology) => (

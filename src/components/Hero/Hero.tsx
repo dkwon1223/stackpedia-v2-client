@@ -1,7 +1,10 @@
 import { Square3Stack3DIcon, UsersIcon, WrenchScrewdriverIcon } from "@heroicons/react/16/solid";
 import { FC } from "react";
+import { useNavigate } from "react-router";
 
 const Hero: FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="hero bg-gradient-to-br from-base-200 to-base-300 min-h-screen">
       <div className="hero-content text-center max-w-4xl">
@@ -24,7 +27,7 @@ const Hero: FC = () => {
             <button className="btn btn-primary btn-lg px-8">
               Explore Tech Stacks
             </button>
-            <button className="btn btn-primary btn-lg px-8">
+            <button onClick={() => navigate("/technologies")} className="btn btn-primary btn-lg px-8">
               Browse Technologies
             </button>
           </div>

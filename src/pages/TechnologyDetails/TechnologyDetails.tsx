@@ -48,7 +48,7 @@ const TechnologyDetails: FC = () => {
 
   if (isPending) {
     return (
-      <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center">
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center bg-base-200">
         <div className="flex w-[80%] h-screen flex-col gap-4">
           <div className="flex items-center gap-4">
             <div className="skeleton h-[10em] w-[10em] shrink-0 rounded-full"></div>
@@ -65,7 +65,7 @@ const TechnologyDetails: FC = () => {
 
   if (isError) {
     return (
-      <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center">
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center bg-base-200">
         <ErrorPage
           errorStatusCode={getErrorStatusCode()}
           reason={getErrorMessage()}
@@ -77,8 +77,8 @@ const TechnologyDetails: FC = () => {
   }
 
   return (
-    <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center">
-      <section className="max-w-4xl mx-auto p-6">
+    <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center bg-base-200">
+      <section className="max-w-7xl mx-auto p-6">
         <div className="mb-8">
           <img
             src={
@@ -100,7 +100,7 @@ const TechnologyDetails: FC = () => {
             ))}
           </div>
         </div>
-        <div className="card bg-base-200 shadow-lg mb-6">
+        <div className="card bg-base-100 border-2 border-base-300 shadow-lg mb-6">
           <div className="card-body">
             <h2 className="card-title">About</h2>
             <ReactMarkdown>
@@ -108,7 +108,7 @@ const TechnologyDetails: FC = () => {
             </ReactMarkdown>
           </div>
         </div>
-        <div className="card bg-base-200 shadow-lg">
+        <div className="card bg-base-100 border-2 border-base-300 shadow-lg">
           <div className="card-body">
             <h2 className="card-title mb-4">Resources</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -117,7 +117,7 @@ const TechnologyDetails: FC = () => {
                   href={technology?.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary btn-outline"
+                  className="btn btn-primary"
                 >
                   <svg
                     className="w-4 h-4"
@@ -141,7 +141,7 @@ const TechnologyDetails: FC = () => {
                   href={technology?.documentationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-secondary btn-outline"
+                  className="btn btn-info"
                 >
                   <svg
                     className="w-4 h-4"
@@ -165,7 +165,7 @@ const TechnologyDetails: FC = () => {
                   href={technology?.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-accent btn-outline"
+                  className="btn btn-secondary"
                 >
                   <svg
                     className="w-4 h-4"
