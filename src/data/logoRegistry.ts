@@ -45,6 +45,7 @@ export const LOGO_REGISTRY: LogoRegistry = {
   },
   django: {
     image: getImagePath("django.svg"),
+    dark: getImagePath("django-dark.svg"),
     alt: "Django Logo",
   },
   rails: {
@@ -77,6 +78,7 @@ export const LOGO_REGISTRY: LogoRegistry = {
   // Cloud Platforms
   aws: {
     image: getImagePath("aws.svg"),
+    dark: getImagePath("aws-dark.svg"),
     alt: "Amazon Web Services Logo",
   },
   gcp: {

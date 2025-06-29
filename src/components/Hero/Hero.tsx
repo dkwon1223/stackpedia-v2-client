@@ -32,17 +32,17 @@ const Hero: FC = () => {
             <div className="stat bg-base-100/70 rounded-2xl backdrop-blur-sm">
               <div className="stat-figure text-primary text-2xl"><Square3Stack3DIcon height={'1.5em'}/></div>
               <div className="stat-title text-lg">Tech Stacks</div>
-              <div className="stat-value text-2xl text-secondary">100+</div>
+              <div className="stat-value text-2xl">100+</div>
             </div>
             <div className="stat bg-base-100/70 rounded-2xl backdrop-blur-sm">
               <div className="stat-figure text-primary text-2xl"><WrenchScrewdriverIcon height={'1.5em'}/></div>
               <div className="stat-title text-lg">Technologies</div>
-              <div className="stat-value text-2xl text-secondary">500+</div>
+              <div className="stat-value text-2xl">500+</div>
             </div>
             <div className="stat bg-base-100/70 rounded-2xl backdrop-blur-sm">
               <div className="stat-figure text-primary text-2xl"><UsersIcon height={'1.5em'}/></div>
               <div className="stat-title text-lg">Developers</div>
-              <div className="stat-value text-2xl text-secondary">10K+</div>
+              <div className="stat-value text-2xl">10K+</div>
             </div>
           </div>
         </div>

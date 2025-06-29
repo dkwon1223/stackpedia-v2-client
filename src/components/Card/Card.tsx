@@ -3,15 +3,15 @@ import { CardProps } from "./props";
 import TechnologyDefaultImage from "../../assets/logos/technology-default.png";
 import { useTheme } from "../../context/ThemeContext";
 
-const Card: FC<CardProps> = ({ title, description, buttonText, logo }) => {
+const Card: FC<CardProps> = ({ title, description, buttonText, logo, onButtonClick }) => {
   const { theme } = useTheme();
 
   return (
-    <div className="card bg-base-300 w-[16em] shadow-md hover:shadow-xl transition-shadow duration-300">
+    <div className="card bg-base-300 w-[12em] md:w-[13em] lg:w-[14em] xl:w-[15em] shadow-md hover:shadow-xl transition-shadow duration-300">
       <figure className="p-2">
         <img
           src={(theme == 'darkbub' && logo.dark ? logo.dark : logo.image) || TechnologyDefaultImage}
-          className="w-[12em] h-[12em] object-contain"
+          className="w-[10em] h-[10em] object-contain"
           alt={logo.alt}
         />
       </figure>
@@ -21,7 +21,7 @@ const Card: FC<CardProps> = ({ title, description, buttonText, logo }) => {
           {description}
         </p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">{buttonText}</button>
+          <button className="btn btn-primary" onClick={onButtonClick}>{buttonText}</button>
         </div>
       </div>
     </div>
