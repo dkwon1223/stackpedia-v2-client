@@ -7,6 +7,7 @@ import { useTheme } from "../../context/ThemeContext";
 import { LOGO_REGISTRY } from "../../data/logoRegistry";
 import { LogoConfig } from "../../model/types";
 import TechnologyDefaultImage from "../../assets/logos/technology-default.png";
+import ReactMarkdown from "react-markdown";
 
 const TechnologyDetails: FC = () => {
   const { technologySlug } = useParams();
@@ -48,7 +49,16 @@ const TechnologyDetails: FC = () => {
   if (isPending) {
     return (
       <main className="w-full px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col justify-start items-center">
-        <span className="loading loading-bars w-[10%] text-primary"></span>
+        <div className="flex w-[80%] h-screen flex-col gap-4">
+          <div className="flex items-center gap-4">
+            <div className="skeleton h-[10em] w-[10em] shrink-0 rounded-full"></div>
+            <div className="flex flex-col gap-4">
+              <div className="skeleton h-[2em] w-[12em]"></div>
+              <div className="skeleton h-[4em] w-[18em]"></div>
+            </div>
+          </div>
+          <div className="skeleton h-[20em] w-full"></div>
+        </div>
       </main>
     );
   }
@@ -75,7 +85,7 @@ const TechnologyDetails: FC = () => {
               (theme == "darkbub" && logo?.dark ? logo.dark : logo?.image) ||
               TechnologyDefaultImage
             }
-            className="w-[10em] h-[10em] object-contain"
+            className="w-[10em] h-[10em] object-contain mb-6"
             alt={logo?.alt}
           />
           <h1 className="text-4xl font-bold mb-2">{technology?.name}</h1>
@@ -90,15 +100,15 @@ const TechnologyDetails: FC = () => {
             ))}
           </div>
         </div>
-        <div className="card bg-base-100 shadow-lg mb-6">
+        <div className="card bg-base-200 shadow-lg mb-6">
           <div className="card-body">
             <h2 className="card-title">About</h2>
-            <p className="text-base leading-relaxed">
+            <ReactMarkdown>
               {technology?.description}
-            </p>
+            </ReactMarkdown>
           </div>
         </div>
-        <div className="card bg-base-100 shadow-lg">
+        <div className="card bg-base-200 shadow-lg">
           <div className="card-body">
             <h2 className="card-title mb-4">Resources</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

@@ -56,7 +56,7 @@ const Technologies: FC = () => {
             <MagnifyingGlassIcon height={"1em"} />
             <input
               type="search"
-              className="grow text-primary-content"
+              className="grow text-base-content"
               placeholder="Search by name"
               onChange={handleSearch}
             />

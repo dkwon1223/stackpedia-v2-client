@@ -7,7 +7,7 @@ const Card: FC<CardProps> = ({ title, description, buttonText, logo, onButtonCli
   const { theme } = useTheme();
 
   return (
-    <div className="card bg-base-300 w-[10em] md:w-[12em] lg:w-[14em] shadow-md hover:shadow-xl transition-shadow duration-300">
+    <div className="card bg-base-300 w-[12em] md:w-[13em] lg:w-[14em] xl:w-[15em] shadow-md hover:shadow-xl transition-shadow duration-300">
       <figure className="p-2">
         <img
           src={(theme == 'darkbub' && logo.dark ? logo.dark : logo.image) || TechnologyDefaultImage}
