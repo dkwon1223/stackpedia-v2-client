@@ -7,7 +7,6 @@ import { AxiosError } from "axios";
 import { useCategories } from "../../api/queries/categories";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useNavigate } from "react-router";
-import { useTheme } from "../../context/ThemeContext";
 
 const Technologies: FC = () => {
   const navigate = useNavigate();
@@ -22,7 +21,6 @@ const Technologies: FC = () => {
     refetch,
   } = useTechnologies(categoryId);
   const { data: categories } = useCategories();
-  const { theme } = useTheme();
 
   const getErrorStatusCode = () => {
     if (error && error instanceof AxiosError) {

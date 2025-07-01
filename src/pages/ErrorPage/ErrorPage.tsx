@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, ArrowPathIcon, ExclamationTriangleIcon, HomeIcon, HomeModernIcon, LockClosedIcon, MagnifyingGlassCircleIcon, XCircleIcon } from "@heroicons/react/16/solid";
+import { ArrowLeftIcon, ArrowPathIcon, ExclamationTriangleIcon, HomeIcon, LockClosedIcon, MagnifyingGlassCircleIcon, XCircleIcon } from "@heroicons/react/16/solid";
 import { ErrorPageProps } from "./props";
 import { FC, ReactNode } from "react";
 
