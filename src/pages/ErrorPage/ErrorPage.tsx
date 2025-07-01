@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, ArrowPathIcon, ExclamationTriangleIcon, HomeIcon, HomeModernIcon, LockClosedIcon, MagnifyingGlassCircleIcon, XCircleIcon } from "@heroicons/react/16/solid";
+import { ArrowLeftIcon, ArrowPathIcon, ExclamationTriangleIcon, HomeIcon, LockClosedIcon, MagnifyingGlassCircleIcon, XCircleIcon } from "@heroicons/react/16/solid";
 import { ErrorPageProps } from "./props";
 import { FC, ReactNode } from "react";
 
@@ -61,7 +61,7 @@ const ErrorPage: FC<ErrorPageProps> = ({
   };
 
   return (
-    <div className="min-h-[90vh] bg-base-100 flex items-center justify-center px-4">
+    <div className="min-h-[90vh] w-full bg-base-200 flex items-center justify-center px-4">
       <div className="text-center max-w-md w-full">
         <div className="flex justify-center text-error">
           {getErrorIcon(errorStatusCode)}

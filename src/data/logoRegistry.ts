@@ -2,7 +2,8 @@ import { LogoRegistry } from "../model/types";
 
 const availableImages = import.meta.glob('../assets/logos/*.{png,jpg,jpeg,gif,svg}', {
     eager: true,
-    as: 'url'
+    query: '?url',
+    import: 'default'
 });
 
 const getImagePath = (imageName: string) => {
