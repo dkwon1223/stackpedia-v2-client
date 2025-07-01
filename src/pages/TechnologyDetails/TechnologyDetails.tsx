@@ -112,7 +112,7 @@ const TechnologyDetails: FC = () => {
           <div className="card-body">
             <h2 className="card-title mb-4">Resources</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {technology?.websiteUrl && (
+              {technology?.websiteUrl && ( 
                 <a
                   href={technology?.websiteUrl}
                   target="_blank"
