@@ -6,9 +6,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+repomix-output.xml*
+repomix-output.txt*
 
 node_modules
-.env
+.env*
 dist
 dist-ssr
 *.local
