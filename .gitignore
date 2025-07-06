@@ -7,9 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 repomix-output.xml*
+<<<<<<< HEAD
+=======
+repomix-output.txt*
+>>>>>>> staging
 
 node_modules
-.env
+.env*
 dist
 dist-ssr
 *.local
